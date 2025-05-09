@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: airline-api
+spec:
+  selector:
+    app: airline-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: airline-db
+spec:
+  selector:
+    app: airline-db
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
